@@ -1,0 +1,26 @@
+# Object files
+*.o
+
+# Libraries
+*.lib
+*.a
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# OS temporary files
+.DS_Store
+
+# doens't need module files
+node_modules
+
+# except config file
+config.json
