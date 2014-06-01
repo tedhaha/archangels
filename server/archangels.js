@@ -7,7 +7,6 @@ var express         = require('express'); 		// call express
 var morgan          = require('morgan');
 var bodyParser      = require('body-parser');
 var methodOverride  = require('method-override');
-var mysql           = require('mysql');
 var config          = require("../config.json");
 var app             = express(); 				// define our app using express
 
@@ -28,21 +27,10 @@ if ('development' == env) {
 }
 
 // =============================================================================
-// connect to our database
+// connect to database
 // =============================================================================
 
-//var application_root = __dirname;
-
-var pool = mysql.createPool({
-    host : config.mysql_host,
-    port: config.mysql_port,
-    user : config.mysql_user,
-    password : config.mysql_password,
-    database: config.mysql_database,
-    connectionLimit: config.connectionLimit,
-    waitForConnections: config.waitForConnections
-});
- 
+var _DBPool = require('./lib/_DBPool');
 
 // =============================================================================
 // router setting
@@ -50,27 +38,28 @@ var pool = mysql.createPool({
 var router = express.Router();
 
 router.get('/', function (req, res) {
-    res.json({ message: 'hooray! welcome to our api!' });   
+    res.json({ message: 'welcome to our Archangels' });   
+});
+router.get('/users', function(req,res){
+    _DBPool.acquire(function(err, db) {
+        if (err) {
+            return res.end("CONNECTION error: " + err);
+        }
+
+        db.query("select * from user",[],function(err, rows, columns) {
+        _DBPool.release(db);
+ 
+        if (err) {
+          return res.end("QUERY ERROR: " + err);
+        }
+        res.end(JSON.stringify(rows));
+    });
+  });
 });
 
-router.get('/dbtest', function (req, res) {
-    pool.getConnection(function(err,connection){
-        try{
-           connection.query('SELECT * FROM user;', function (error, rows, fields) {
-                 res.writeHead(200, {'Content-Type': 'text/plain'});
-                 var str='';
-                 for(var i=0;i<rows.length;i++)
-                    str = str + rows[i].user_pid +'\n';
-                    res.end( str);
-            });
-        } catch (exeception) {
-            console.log(exeception);
-            res.send(404);
-        }finally{
-            connection.release();
-        }
-    });
-});
+
+
+
 /*
 http://bcho.tistory.com/m/post/892
 TODO: 참고해서 login/:pid 시 없으면  insert 로 user와 player_game_status 생성하고 해당 데이터 리턴.  있으면 그대로 player_game_status 리턴)
