@@ -26,6 +26,8 @@ npm-debug.log
 # except config file
 config.json
 
-# not purpose
+# webstorm
+.idea/
+
 build/
 reports/
