@@ -16,11 +16,16 @@
 *.out
 *.app
 
-# OS temporary files
+# Mac OS X
 .DS_Store
 
-# doens't need module files
+# Node.js
 node_modules
+npm-debug.log
 
 # except config file
 config.json
+
+# not purpose
+build/
+reports/
