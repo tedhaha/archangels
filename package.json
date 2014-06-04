@@ -1,31 +1,33 @@
 {
-  "name": "archangles",
-  "version": "0.0.1",
-  "private": true,
-  "engine": "node >=0.10.x",
-  "main": "./server/archangels.js",
-  "scripts": {
-    "start": "node ./server/bin/www"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:tedhaha/archangels.git"
-  },
-  "dependencies": {
-    "express": "~4.3.1",
-	"static-favicon": "~1.0.0",
-	"cookie-parser": "~1.0.1",
-    "body-parser": "~1.2.2",
-	"debug": "~0.7.4",
-    "ejs": "~0.8.5",
-    "compression": "*",
-    "cookie-session": "*",
-    "errorhandler": "*",
-    "express-session": "*",
-    "method-override": "~1.0.0",
-    "mongoose": "~3.6.13",
-    "morgan": "~1.0.0",
-    "mysql": "2.3.2",
-    "generic-pool": "^2.0.4"
-  }
+    "name": "archangles",
+    "version": "0.0.1",
+    "private": true,
+    "engine": "node >=0.10.x",
+    "main": "./server/bin/archangels.js",
+    "scripts": {
+        "start": "node ./server/bin/archangels"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:tedhaha/archangels.git"
+    },
+    "dependencies": {
+        "body-parser": "~1.2.2",
+        "compression": "*",
+        "cookie-parser": "~1.0.1",
+        "cookie-session": "*",
+        "debug": "~0.7.4",
+        "ejs": "~0.8.5",
+        "errorhandler": "*",
+        "express": "~4.3.1",
+        "express-session": "*",
+        "generic-pool": "^2.0.4",
+        "method-override": "~1.0.0",
+        "mongoose": "~3.6.13",
+        "morgan": "~1.0.0",
+        "mysql": "2.3.2",
+        "static-favicon": "~1.0.0",
+        "winston": "^0.7.3"
+    },
+    "license": "free"
 }

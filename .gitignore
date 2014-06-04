@@ -29,5 +29,9 @@ config.json
 # webstorm
 .idea/
 
+# etc
 build/
 reports/
+
+# logs
+*.log
