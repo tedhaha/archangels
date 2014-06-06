@@ -34,4 +34,6 @@ build/
 reports/
 
 # logs
+debug.log
+exception.log
 *.log
