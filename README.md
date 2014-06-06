@@ -1,3 +1,21 @@
-wednesday - Archangels
+#Overview
+Team Wednesday's node.js study
 
-wooram, tedhaha, mimyo
+#Features
+
+#Installation
+
+#Dependencies
++ node.js
++ mysql
+
+#Used node modules
+
+#Front-end libraries
+
+#API
+
+#REST Collections
+
+#License
+free

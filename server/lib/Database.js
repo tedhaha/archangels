@@ -17,7 +17,7 @@ module.exports = function Database(db_config) {
             var client = mysql.createConnection(config);
             client.connect(function (error){
                 if(error){
-                    console.error(error);
+                    loge.error(error);
                 }
                 callback(error, client);
             });
