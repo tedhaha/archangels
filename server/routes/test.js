@@ -1,3 +1,4 @@
+
 module.exports = function Routes(app, dbPool) {
 
     var express = require('express');
@@ -20,7 +21,7 @@ module.exports = function Routes(app, dbPool) {
                         conn.query('SELECT * from player_game_status where pgs_user_id= ? ', user_id, cb);
                     },
                     function (rows, columns, cb) {
-                        printResult(arguments);
+                        //printResult(arguments);
                         res.end(JSON.stringify(rows));
                         cb();
                     }
@@ -28,7 +29,7 @@ module.exports = function Routes(app, dbPool) {
                 function (err, result) {
                     dbPool.release(conn);
                     if (err == null) {
-                        log.debug('Program closed.');
+                        //log.debug('query executed normally.');
                     } else {
                         loge.warning("QUERY ERROR: \n" + err);
                         return res.end("QUERY ERROR: \n" + err);
